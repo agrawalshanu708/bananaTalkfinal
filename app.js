@@ -1,8 +1,8 @@
-var btnTranslate = document.querySelector("#btn-translate");
-var txtinput = document.querySelector("#txt-input");
-var outputDiv = document.querySelector("#output");
+const btnTranslate = document.querySelector("#btn-translate");
+const txtinput = document.querySelector("#txt-input");
+const outputDiv = document.querySelector("#output");
 
-var serverURL = "https://api.funtranslations.com/translate/minion.json";
+const serverURL = "https://api.funtranslations.com/translate/minion.json";
 
 function getTranslationURL(input) {
   return serverURL + "?" + "text=" + input;
@@ -10,16 +10,14 @@ function getTranslationURL(input) {
 
 function errorHandler(error) {
   console.log("error occurred", error);
-  alert("there is something wrong in the server please tyr after some time");
-}
-
+  alert("there is something wrong in the server please tyr after some time");const
 function clickHandler() {
-  var textInput = txtinput.value;
+  let textInput = txtinput.value;
   console.log(textInput);
   fetch(getTranslationURL(textInput))
     .then((response) => response.json())
     .then((json) => {
-      var translatedText = json.contents.translated;
+      let translatedText = json.contents.translated;
       outputDiv.innerText = translatedText;
     })
     .catch(errorHandler);
